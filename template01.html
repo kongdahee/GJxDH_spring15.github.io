@@ -1,14 +1,120 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-<title>TEMPLATE</title>
+<head> 
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/kopubbatang.css">
+<title> 계절 끝의 계절</title>
+
+
+
+<style>
+
+
+.item {		
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	position: absolute;
+	
+	}
+
+
+#text { 
+	font-family: 'KoPub Batang', serif;
+	font-size: 50px;
+	line-height: 1.3em;
+	
+	}
+
+
+#text2 { 
+	font-family: 'KoPub Batang', serif;
+	font-size: 120px;
+	line-height: 1.3em;
+	
+	}
+
+
+#icons {
+	position: fixed;
+	z-index: 100;
+	top: 10px;
+	left: 3px;
+
+	}
+
+.refresh {
+    	float: left;
+	}
+
+
+
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+ 
+
+ <script> 
+ 
+	$( init );
+	 
+	function init() {
+	  $('.dragme').draggable();
+	  
+	  $(".dragme").each(function() {
+	  	var $img = $(this);
+	  	var width = $(window).width();
+	  	var height = $(window).height();
+	  	var rndTop = (Math.random()*height*.75)+(height*.125);
+	  	var rndLeft = (Math.random()*width*.75)+(width*.125);
+
+
+
+	  	$img.css("top", rndTop + "px");
+	  	$img.css("left", rndLeft + "px");
+
+	  });
+
+	  $('.item').draggable();
+
+	  $(".item").each(function() {
+	  	var text = $(this);
+	  	var width = $(window).width();
+	  	var height = $(window).height();
+	  	var rndTop = text.offset().top + (Math.random()*height*.5)+(height*.1);
+	  	var rndLeft = text.offset().left + (Math.random()*width*.5)+(width*.1);
+
+	  	text.css("top", rndTop + "px");
+	  	text.css("left", rndLeft + "px");
+
+	  });
+
+	}
+
+	$(document).ready(function() {
+	 $('ul#tools').prepend('<li class="print"><a href="#print">Click me to print</a></li>');
+	 $('ul#tools li.print a').click(function() {
+	  window.print();
+	  return false;
+	 });
+	}); 
+	 
+
+
+</script>
+
 </head>
 
+
+
+
 <body>
-
-
-
+ <div id="text" class="item">계절<br>끝의<br>계절</div>
+ <div id="text2" class="item">끝없는</div>
+ <div id="text2" class="item">끈의 끝을</div>
+ <div id="text2" class="item">이어 붙이면</div>
 
 
 </body>
